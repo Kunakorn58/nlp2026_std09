@@ -39,10 +39,10 @@ def balance_legal_data(X, y):
     if min_samples > 1:
         # ใช้ SMOTE (ปรับ k_neighbors ให้เหมาะสมกับจำนวนข้อมูลที่มี)
         k = min(5, min_samples - 1)
-        sampler = SMOTE(k_neighbors=k, random_state=42)
+        sampler = SMOTE(k_neighbors=k, random_state=9)
     else:
         # หากมีข้อมูลเพียง 1 ตัวอย่าง ให้ใช้การสุ่มคัดลอก (Random Over Sampling)
-        sampler = RandomOverSampler(random_state=42)
+        sampler = RandomOverSampler(random_state=9)
         
     X_res, y_res = sampler.fit_resample(X, y)
     print(f"Balanced distribution: {Counter(y_res)}\n")
